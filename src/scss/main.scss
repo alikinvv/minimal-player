@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+@import 'mixins';
+
+/*** MIXINS USAGE ***
+
+	@include font-face("fontName", "../fonts/fontPath/fontName", normal); 
+
+	@include xs(12);
+	@include sm(12);
+	@include md(12);
+	@include lg(12);
+
+	@include r(768);
+	@include rmin(768);
+
+	@include trans / trans($what $dur $easing);
+	@include cover;
+
+	@include centerX / centerXa
+	@include centerY / centerYa
+
+	@include overlay($opacity)
+***/
+
+.icon {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	font-size: 30px;
+	fill: #D7DCE2;
+	transition: all .2s ease-in-out;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: #ffeff5;
+	position: relative;
+}
+
+.player {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	&.play {
+		.player__timeline {
+			transform: translateY(-90%);
+		}
+		.player__album:after {
+			box-shadow: 0px 30px 28px -10px rgba(0,0,0,.2);
+		}
+		.player__album {
+			top: -65px;
+		}
+		.pause {
+			display: inline-block;
+		}
+		.play {
+			display: none;
+		}
+	}
+	&__album {
+		width: 112px;
+		height: 112px;		
+		border-radius: 50%;
+		margin-right: 22px;
+		position: relative;
+		top: -50px;
+		transition: all .4s ease-in-out;
+		&:before {
+			content: '';
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			z-index: 3;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: #fff;
+			border-radius: 50%;
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border-radius: 50%;
+			box-shadow: none;
+			transition: all .3s ease-in-out;
+		}
+	}
+	&__albumImg {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		position: relative;
+		z-index: 2;
+		display: none;
+		&.active-song {
+			display: block;
+		}
+	}
+	&__bar {
+		background: #fff;
+		padding: 10px 25px;
+		height: 100px;
+		display: flex;
+		justify-content: space-between;
+		border-radius: 15px;
+		box-shadow: 0 30px 56px 6px rgba(0,0,0,0.1);
+		position: relative;
+		z-index: 3;
+	}
+	&__controls {
+		display: flex;
+		align-items: center;
+	}
+	&__prev {
+		transform: rotate(180deg);
+		height: 80px;
+		width: 80px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		border-radius: 15px;
+		transition: all .2s ease-in-out;
+		margin-right: 3px;
+		&:hover {
+			background: #D7DCE2;
+			svg {
+				fill: #fff;
+			}
+		}
+	}
+	&__play {
+		cursor: pointer;
+		height: 80px;
+		width: 80px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 15px;
+		transition: all .2s ease-in-out;
+		margin-right: 3px;		
+		position: relative;
+		&:hover {
+			background: #D7DCE2;
+			svg {
+				fill: #fff;
+			}
+		}
+		svg {
+			font-size: 20px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			&.pause {
+				display: none;
+			}
+		}
+	}
+	&__next {
+		cursor: pointer;
+		height: 80px;
+		width: 80px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 15px;
+		transition: all .2s ease-in-out;
+		margin-left: -8px;
+		&:hover {
+			background: #D7DCE2;
+			svg {
+				fill: #fff;
+			}
+		}
+	}
+	&__timeline {
+		background: #fff6fb;;
+		height: 95px;
+		border-radius: 15px;
+		position: absolute;
+		bottom: 0;
+		left: 10px;
+		right: 10px;
+		transform: translateY(0);
+		transition: all .3s ease-in-out;
+		z-index: 1;
+		padding-left: 160px;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__timelineBar {
+		background: #E7E7E7;
+		width: 95%;
+		height: 4px;
+		border-radius: 15px;
+		margin-top: 13px;
+		position: relative;
+	}
+	#playhead {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 15px;
+		width: 0;
+		height: 100%;
+		background: #fd6d94;
+	}
+	&__author {
+		line-height: 1;
+		font-weight: bold;
+		margin-bottom: 6px;
+		margin-top: 15px;
+	}
+	&__song {
+		line-height: 1;
+		margin: 0;
+		font-size: 12px;
+		color: #949494;
+	}
+}
