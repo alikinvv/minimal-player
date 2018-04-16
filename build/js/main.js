@@ -87,7 +87,7 @@ $(document).ready(function () {
                 var duration = this.duration;
                 var currentTime = this.currentTime;
                 var percentage = (currentTime / duration) * 100;
-                playhead.style.width = percentage * 4 + 'px';
+                playhead.style.width = percentage + 'px';
             });
         }
         updateInfo();
