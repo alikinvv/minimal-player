@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.23.6",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "4.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-cheerio": "^0.6.3",
     "gulp-concat": "^2.6.1",
@@ -26,13 +26,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alikinvv/workflow-gulp.git"
+    "url": "git+https://github.com/alikinvv/minimal-player.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alikinvv/workflow-gulp/issues"
+    "url": "https://github.com/alikinvv/minimal-player/issues"
   },
-  "homepage": "https://github.com/alikinvv/workflow-gulp#readme"
+  "homepage": "https://github.com/alikinvv/minimal-player#readme"
 }
